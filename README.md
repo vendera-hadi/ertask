@@ -4,7 +4,7 @@
 Clone this repository to your local folder
 
 ```
-git clone https://github.com/vendera-hadi/ertask.git
+git clone git@github.com:vendera-hadi/ertask.git
 ```
 
 ### Using Docker
@@ -26,7 +26,7 @@ localhost:3000
 ```
 
 ### Using Rbenv
-Follow the instructions to install *rbenv* [here](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-20-04) 
+Follow the instructions to install *rbenv* [here](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-20-04)
 
 After installing *Rbenv*, run these several line of codes
 ```
@@ -44,4 +44,70 @@ rails s
 Open this link to access the project
 ```
 localhost:3000
+```
+
+### Endpoint
+```
+GET localhost:3000/scores
+```
+
+### Request Payload
+```json
+{
+    "scores": {
+        "managers": [
+            {
+                "userId": 1,
+                "score": 1
+            },
+            {
+                "userId": 2,
+                "score": 5
+            }
+        ],
+        "team": [
+            {
+                "userId": 4,
+                "score": 1
+            },
+            {
+                "userId": 5,
+                "score": 5
+            },
+            {
+                "userId": 6,
+                "score": 3
+            },
+            {
+                "userId": 7,
+                "score": 2
+            }
+        ],
+        "others": [
+            {
+                "userId": 8,
+                "score": 1
+            },
+            {
+                "userId": 9,
+                "score": 5
+            }
+        ]
+    }
+}
+```
+
+### Response
+```json
+{
+    "success": true,
+    "data": {
+        "scores": {
+            "managers": 3.0,
+            "team": 2.75,
+            "others": 0
+        }
+    },
+    "errors": []
+}
 ```
