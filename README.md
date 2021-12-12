@@ -111,3 +111,17 @@ GET localhost:3000/scores
     "errors": []
 }
 ```
+
+### Run test
+
+On the repository directory, run this code to run the tests
+
+If using docker
+```
+docker-compose run web rails test
+```
+
+If using rbenv
+```
+rails test
+```
