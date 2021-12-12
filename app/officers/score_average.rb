@@ -7,20 +7,17 @@ class ScoreAverage
   def initialize(params)
     @params = params
     @errors = []
-    @result = {}
+    @result = { scores: {} }
   end
 
   def perform
-    averages = {}
     scores.each do |group, objects|
       return false unless validate_scores(objects)
 
-      averages[group] = calculate_avg(group, objects)
+      result[:scores][group.to_sym] = calculate_avg(group, objects)
     end
-
     return false unless duplicated_user?
 
-    result[:scores] = averages
     true
   rescue StandardError
     @errors = ['Error Occured when Processing Data']
